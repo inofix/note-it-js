@@ -1,11 +1,16 @@
 var svg = d3.select("svg");
-svg.call(d3.zoom().on("zoom", function() { svg.attr("transform", d3.event.transform)}));
 //var noteits = [];
 
 //TODO
-//    function zooming(e) {
-//        e.attr("transform", d3.event.transform);
-//    }
+//function zooming(toZoom) {
+//    toZoom.attr("transform", d3.event.transform);
+//}
+
+//function zooming() {
+//    d3.selectAll(".noteit").attr("transform", d3.event.transform);
+//}
+//svg.call(d3.zoom().on("zoom", zooming));
+
 
 function draw_noteit(text) {
 
@@ -20,6 +25,11 @@ function draw_noteit(text) {
     return n;
 }
 
+function change_text(textField) {
+    d = prompt("change text:");
+    textField.text(d);
+}
+
 function create_noteit(text) {
 
     var n = draw_noteit(text);
@@ -28,10 +38,21 @@ function create_noteit(text) {
         .attr("class", "title")
         .attr("width", "9em")
         .attr("height", "1em")
-    t.append("text")
-        .text(text)
+    var tt = t.append("text")
+        .text("..")
         .attr("x", "4px")
-        .attr("y", "1em")
+        .attr("y", "1em");
+    tt.on("click", function() { change_text(tt) });
+    var c = n.append("g")
+        .attr("class", "content")
+        .attr("width", "100px")
+        .attr("height", "100px")
+    var ct = c.append("text")
+        .text("_")
+        .attr("x", "4px")
+        .attr("y", "2em")
+    c.on("click", function() { change_text(ct) });
+//    d3.selectAll("#title").on("click", change_text(tt));
     var h = n.append("g")
         .attr("class", "handle")
         .attr("width", "1em")
@@ -40,11 +61,27 @@ function create_noteit(text) {
         .text("-")
         .attr("x", "9em")
         .attr("y", "1em");
-    h.on("click", function() { n.remove() })
+    h.on("click", function() { n.remove() });
 //        n.call(d3.zoom().on("zoom", zooming(n)));
-    n.call(d3.zoom().on("zoom", function() { n.attr("transform", d3.event.transform)}));
+    n.call(d3.drag().on("drag", function() {
+// TODO the delta should have been calculated each time the mouse is pressed down, neither when adding the handler nor while dragging...
+//        var dX = d3.event.x - n.attr("x");
+//        var dY = d3.event.y - n.attr("y");
+        n.attr("transform", "translate(" + d3.event.x + "," + d3.event.y + ")");
+        n.raise();
+    }));
 //    noteits.push(n);
 };
+
+function drag_calc(delta, current) {
+    return current - delta;
+}
+
+function drag_it() {
+    var dX = d3.event.x - n.attr("x");
+    var dY = d3.event.y - n.attr("y");
+    drag_translate(dX, dY);
+}
 
 var stock = draw_noteit("+");
 stock.append("text").text("+").attr("x", "9em").attr("y", "1em");
