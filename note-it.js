@@ -1,6 +1,6 @@
 var svg = d3.select("svg");
-
-var noteits = [];
+svg.call(d3.zoom().on("zoom", function() { svg.attr("transform", d3.event.transform)}));
+//var noteits = [];
 
 //TODO
 //    function zooming(e) {
@@ -43,12 +43,13 @@ function create_noteit(text) {
     h.on("click", function() { n.remove() })
 //        n.call(d3.zoom().on("zoom", zooming(n)));
     n.call(d3.zoom().on("zoom", function() { n.attr("transform", d3.event.transform)}));
-    noteits.push(n);
+//    noteits.push(n);
 };
 
 var stock = draw_noteit("+");
 stock.append("text").text("+").attr("x", "9em").attr("y", "1em");
 stock.on("mouseover", function() { create_noteit("...") } );
+
 
 // TODO - make text editable on click
 // TODO - d3.zoom is not the ideal solution, should be rewritten to work with the other features
