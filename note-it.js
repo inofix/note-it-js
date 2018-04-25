@@ -73,16 +73,6 @@ function create_noteit(text) {
 //    noteits.push(n);
 };
 
-function drag_calc(delta, current) {
-    return current - delta;
-}
-
-function drag_it() {
-    var dX = d3.event.x - n.attr("x");
-    var dY = d3.event.y - n.attr("y");
-    drag_translate(dX, dY);
-}
-
 var stock = draw_noteit("+");
 stock.append("text").text("+").attr("x", "9em").attr("y", "1em");
 stock.on("mouseover", function() { create_noteit("...") } );
