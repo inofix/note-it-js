@@ -1,33 +1,23 @@
 var svg = d3.select("svg");
 //var noteits = [];
 
-//TODO
-//function zooming(toZoom) {
-//    toZoom.attr("transform", d3.event.transform);
-//}
-
+// TODO - allow zooming of the whole area?
 //function zooming() {
 //    d3.selectAll(".noteit").attr("transform", d3.event.transform);
 //}
 //svg.call(d3.zoom().on("zoom", zooming));
 
-
-function draw_noteit(text) {
+function draw_noteit() {
 
     var n = svg.append("g")
             .attr("class", "noteit")
-    // note the height/width via css above works on chrome
+    // note the height/width via css above works in chrome
     // but for ff it must be set here...
     n.append("rect")
         .attr("class", "paper")
         .attr("width", "10em")
         .attr("height", "10em");
     return n;
-}
-
-function change_text(textField) {
-    d = prompt("change text:");
-    textField.text(d);
 }
 
 // a foreignObject is needed, as the svg elements will not carry
@@ -79,7 +69,7 @@ function edit_text(d, t) {
 
 function create_noteit(text) {
 
-    var n = draw_noteit(text);
+    var n = draw_noteit();
 
     var h = n.append("g")
         .attr("class", "handle")
@@ -112,8 +102,6 @@ function create_noteit(text) {
         .attr("width", "100px")
         .attr("height", "100px")
     c.on("click", function() { edit_text(c, ct) });
-//    d3.selectAll("#title").on("click", change_text(tt));
-//        n.call(d3.zoom().on("zoom", zooming(n)));
     n.call(d3.drag().on("drag", function() {
 // TODO the delta should have been calculated each time the mouse is pressed down, neither when adding the handler nor while dragging...
 //        var dX = d3.event.x - n.attr("x");
@@ -124,7 +112,7 @@ function create_noteit(text) {
 //    noteits.push(n);
 };
 
-var stock = draw_noteit("+");
+var stock = draw_noteit();
 stock.append("text").text("+").attr("x", "9em").attr("y", "1em");
 stock.on("click", function() { create_noteit("...") } );
 
