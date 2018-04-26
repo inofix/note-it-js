@@ -30,17 +30,37 @@ function change_text(textField) {
     textField.text(d);
 }
 
+// a foreignObject is needed, as the svg elements will not carry
+// the html form..
 function edit_text(d, t) {
 
-    var text = t.text.innerHTML;
+//    var ttext = t.node().textContent;
+    d["text"] = t.node().textContent;
     var f = d.append("foreignObject")
                 .append("xhtml:form")
                 .append("input")
-                .attr("type", "textarea")
-                .attr("value", function() {
+                .attr("style", "width: 10em;")
+                .attr("type", "text")
+                .attr("value", t.node().textContent)
+    f.attr("value", function() {
                     this.focus();
-                    return text;
-                })
+                    return d["text"];
+    })
+    // do update the text whenever the focus is lost, but only once!
+    f.on("blur", function() {
+        var v = f.node().value;
+        if (v) {
+            d["text"] = v;
+        } else {
+            d["text"] = "...";
+        }
+        t.text(d["text"]);
+        // onblur is called on removeChild, make sure not to remove twice..
+        f.on("blur", null);
+        f.remove();
+        rem = false;
+        return d["text"];
+    })
     f.on("keypress", function() {
         if (d3.event.keyCode == 13) {
 
@@ -50,11 +70,12 @@ function edit_text(d, t) {
             } else {
                 t.text("...");
             }
+            // onblur is called on removeChild, make sure not to remove twice..
+            f.on("blur", null);
             f.remove();
             d3.event.preventDefault();
         }
-    })
-}
+    }) }
 
 function create_noteit(text) {
 
@@ -75,7 +96,8 @@ function create_noteit(text) {
         .attr("width", "9em")
         .attr("height", "1em")
     var tt = t.append("text")
-        .text("..")
+        .text("...")
+        .style("font-weight", "bold")
         .attr("x", "4px")
         .attr("y", "1em");
     t.on("click", function() { edit_text(t, tt) });
@@ -84,10 +106,12 @@ function create_noteit(text) {
         .attr("width", "100px")
         .attr("height", "100px")
     var ct = c.append("text")
-        .text("_")
-        .attr("x", "4px")
+        .text("...")
+        .attr("x", "8px")
         .attr("y", "2em")
-    c.on("click", function() { change_text(ct) });
+        .attr("width", "100px")
+        .attr("height", "100px")
+    c.on("click", function() { edit_text(c, ct) });
 //    d3.selectAll("#title").on("click", change_text(tt));
 //        n.call(d3.zoom().on("zoom", zooming(n)));
     n.call(d3.drag().on("drag", function() {
@@ -104,11 +128,8 @@ var stock = draw_noteit("+");
 stock.append("text").text("+").attr("x", "9em").attr("y", "1em");
 stock.on("click", function() { create_noteit("...") } );
 
-// TODO - make text editable on click
-// TODO - d3.zoom is not the ideal solution, should be rewritten to work with the other features
-// TODO - lift note-it on drag over the others
+// TODO - add a note-it dropped on another to the lower ones group
 // TODO - add a textbox for content / functions below the title (9em remaining)
 // TODO - display the config as json
 // TODO - add sync between json:svg
-// TODO - box shadow
 
