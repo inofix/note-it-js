@@ -30,9 +30,45 @@ function change_text(textField) {
     textField.text(d);
 }
 
+function edit_text(d, t) {
+
+    var text = t.text.innerHTML;
+    var f = d.append("foreignObject")
+                .append("xhtml:form")
+                .append("input")
+                .attr("type", "textarea")
+                .attr("value", function() {
+                    this.focus();
+                    return text;
+                })
+    f.on("keypress", function() {
+        if (d3.event.keyCode == 13) {
+
+            var v = f.node().value;
+            if (v) {
+                t.text(f.node().value);
+            } else {
+                t.text("...");
+            }
+            f.remove();
+            d3.event.preventDefault();
+        }
+    })
+}
+
 function create_noteit(text) {
 
     var n = draw_noteit(text);
+
+    var h = n.append("g")
+        .attr("class", "handle")
+        .attr("width", "1em")
+        .attr("height", "1em");
+    h.append("text")
+        .text("-")
+        .attr("x", "9em")
+        .attr("y", "1em");
+    h.on("click", function() { n.remove() });
 
     var t = n.append("g")
         .attr("class", "title")
@@ -42,7 +78,7 @@ function create_noteit(text) {
         .text("..")
         .attr("x", "4px")
         .attr("y", "1em");
-    tt.on("click", function() { change_text(tt) });
+    t.on("click", function() { edit_text(t, tt) });
     var c = n.append("g")
         .attr("class", "content")
         .attr("width", "100px")
@@ -53,15 +89,6 @@ function create_noteit(text) {
         .attr("y", "2em")
     c.on("click", function() { change_text(ct) });
 //    d3.selectAll("#title").on("click", change_text(tt));
-    var h = n.append("g")
-        .attr("class", "handle")
-        .attr("width", "1em")
-        .attr("height", "1em");
-    h.append("text")
-        .text("-")
-        .attr("x", "9em")
-        .attr("y", "1em");
-    h.on("click", function() { n.remove() });
 //        n.call(d3.zoom().on("zoom", zooming(n)));
     n.call(d3.drag().on("drag", function() {
 // TODO the delta should have been calculated each time the mouse is pressed down, neither when adding the handler nor while dragging...
