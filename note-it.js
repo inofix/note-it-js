@@ -102,8 +102,7 @@ function create_noteit(text) {
 
 var stock = draw_noteit("+");
 stock.append("text").text("+").attr("x", "9em").attr("y", "1em");
-stock.on("mouseover", function() { create_noteit("...") } );
-
+stock.on("click", function() { create_noteit("...") } );
 
 // TODO - make text editable on click
 // TODO - d3.zoom is not the ideal solution, should be rewritten to work with the other features
