@@ -7,16 +7,21 @@ var svg = d3.select("svg");
 //}
 //svg.call(d3.zoom().on("zoom", zooming));
 
-function draw_noteit() {
+function draw_noteit(color) {
 
     var n = svg.append("g")
             .attr("class", "noteit")
     // note the height/width via css above works in chrome
     // but for ff it must be set here...
-    n.append("rect")
+    var r = n.append("rect")
         .attr("class", "paper")
         .attr("width", "10em")
         .attr("height", "10em");
+    if (color) {
+        r.style("fill", color);
+    } else {
+        r.style("fill", "#f7ff72");
+    }
     return n;
 }
 
@@ -67,9 +72,9 @@ function edit_text(d, t) {
         }
     }) }
 
-function create_noteit(text) {
+function create_noteit(color, text) {
 
-    var n = draw_noteit();
+    var n = draw_noteit(color);
 
     var h = n.append("g")
         .attr("class", "handle")
@@ -114,7 +119,13 @@ function create_noteit(text) {
 
 var stock = draw_noteit();
 stock.append("text").text("+").attr("x", "9em").attr("y", "1em");
-stock.on("click", function() { create_noteit("...") } );
+stock.on("click", function() { create_noteit(null, "...") } );
+
+var bstock = draw_noteit("#ff3333");
+bstock.attr("transform", "translate(26,26)");
+bstock.append("text").text("+").attr("x", "9em").attr("y", "1em");
+bstock.on("click", function() { create_noteit("#ff3333", "...") } );
+
 
 // TODO - add a note-it dropped on another to the lower ones group
 // TODO - add a textbox for content / functions below the title (9em remaining)
