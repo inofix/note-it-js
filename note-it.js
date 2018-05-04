@@ -1,4 +1,5 @@
 var svg = d3.select("svg");
+
 //var noteits = [];
 
 // TODO - allow zooming of the whole area?
@@ -10,7 +11,7 @@ var svg = d3.select("svg");
 function draw_noteit(color) {
 
     var n = svg.append("g")
-            .attr("class", "noteit")
+            .attr("class", "noteit");
     // note the height/width via css above works in chrome
     // but for ff it must be set here...
     var r = n.append("rect")
@@ -27,9 +28,55 @@ function draw_noteit(color) {
 
 // a foreignObject is needed, as the svg elements will not carry
 // the html form..
+function edit_textarea(d, t) {
+// TODO - fix multi line ...
+    let a = t.node().childNodes;
+    d["text"] = "";
+    for (i = 0; i < a.length; i++) {
+        if (a[i].textContent) {
+            d["text"] = d["text"] + a[i].textContent + "\n";
+        }
+    }
+    var f = d.append("foreignObject")
+                .append("xhtml:form")
+                .append("textarea")
+                .attr("style", "width: 10em;")
+                .attr("style", "height: 10em;")
+//                .text(t.node().textContent)
+                .text(d["text"])
+    f.attr("value", function() {
+                    this.focus();
+                    return d["text"];
+    })
+    // do update the text whenever the focus is lost, but only once!
+    f.on("blur", function() {
+        var v = f.node().value;
+        if (v) {
+            t.text("");
+            d["text"] = v;
+            let ls = d["text"].replace(/\r\n/g, "\n").split("\n");
+            for (i = 0; i < ls.length; i++) {
+                let dy = 0.9 * i + 2.5;
+                let ti = t.append("tspan")
+                            .attr("x", "8px")
+                            .attr("y", dy + "em");
+                ti.text(ls[i]);
+            }
+        } else {
+            d["text"] = "...";
+        }
+        // onblur is called on removeChild, make sure not to remove twice..
+        f.on("blur", null);
+        d.selectAll("foreignObject").remove();
+        rem = false;
+        return d["text"];
+    })
+}
+
+// a foreignObject is needed, as the svg elements will not carry
+// the html form..
 function edit_text(d, t) {
 
-//    var ttext = t.node().textContent;
     d["text"] = t.node().textContent;
     var f = d.append("foreignObject")
                 .append("xhtml:form")
@@ -52,7 +99,7 @@ function edit_text(d, t) {
         t.text(d["text"]);
         // onblur is called on removeChild, make sure not to remove twice..
         f.on("blur", null);
-        f.remove();
+        d.selectAll("foreignObject").remove();
         rem = false;
         return d["text"];
     })
@@ -67,10 +114,11 @@ function edit_text(d, t) {
             }
             // onblur is called on removeChild, make sure not to remove twice..
             f.on("blur", null);
-            f.remove();
+            d.selectAll("foreignObject").remove();
             d3.event.preventDefault();
         }
-    }) }
+    })
+}
 
 function create_noteit(color, text) {
 
@@ -81,7 +129,7 @@ function create_noteit(color, text) {
         .attr("width", "1em")
         .attr("height", "1em");
     h.append("text")
-        .text("-")
+        .text("x")
         .attr("x", "9em")
         .attr("y", "1em");
     h.on("click", function() { n.remove() });
@@ -98,15 +146,12 @@ function create_noteit(color, text) {
     t.on("click", function() { edit_text(t, tt) });
     var c = n.append("g")
         .attr("class", "content")
-        .attr("width", "100px")
-        .attr("height", "100px")
-    var ct = c.append("text")
+    var ct = c.append("text").append("tspan")
         .text("...")
         .attr("x", "8px")
-        .attr("y", "2em")
-        .attr("width", "100px")
-        .attr("height", "100px")
-    c.on("click", function() { edit_text(c, ct) });
+        .attr("y", "2.5em")
+    ct.append("tspan").text(".")
+    c.on("click", function() { edit_textarea(c, ct) });
     n.call(d3.drag().on("drag", function() {
 // TODO the delta should have been calculated each time the mouse is pressed down, neither when adding the handler nor while dragging...
 //        var dX = d3.event.x - n.attr("x");
