@@ -1,4 +1,6 @@
 var svg = d3.select("svg");
+var svgX = svg.node().getBoundingClientRect().left;
+var svgY = svg.node().getBoundingClientRect().top;
 
 var rstock = create_stock("Type", "#ff6ee2");
 var bstock = create_stock("Type", "#6ee0ff", 8, 26);
