@@ -1,10 +1,10 @@
-var svg = d3.select("svg");
+const svg = d3.select("svg");
+var svgX = svg.node().getBoundingClientRect().left;
+var svgY = svg.node().getBoundingClientRect().top;
 
-var rstock = create_stock("Type", "#ff6ee2");
-
-var bstock = create_stock("Type", "#6ee0ff", 26, 26);
-
-var ystock = create_stock("Type", "", 52, 52);
+var rstock = create_stock("Pink", "#ff6ee2", 4, 4);
+var bstock = create_stock("Cyan", "#6ee0ff", 8, 24);
+var ystock = create_stock("Yellow", "", 12, 44);
 
 // TODO - add a note-it dropped on another to the lower ones group
 // TODO - colapse / expand all children on double-click
