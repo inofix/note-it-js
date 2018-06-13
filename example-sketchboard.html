@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+<!--    <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script src="d3.js"></script>
+
+    <style type="text/css">
+      body, html {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: Helvetica, sans-serif;
+      }
+      #thesketchboard {
+        border: 1px solid black;
+        top: 2px;
+        left: 2px;
+        width: 2048px;
+        height: 2048px;
+      }
+      svg {
+        position: relative;
+        top: 2em;
+        left: 2em;
+        width: 100%;
+        height: 100%;
+      }
+      #sketchboardjson {
+        position: relative;
+        top: 2px;
+        left: 2px;
+      }
+      .paper {
+        stroke: black;
+        stroke-width: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+        <div id="sketchboardjson"></div>
+        <div id="thesketchboard">
+            <svg id="sketchboard"></svg>
+        </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="build/noteit.board.js"></script>
+  <script type="text/javascript">
+    var board = new SketchBoard("#sketchboard");
+    var rstack = new Stack(board, board.group, "Type", 
+                    ["#f7ff72", "#ff6ee2", "#6ee0ff"], [14,14]);
+
+    var back = d3.select("#sketchboardjson");
+    back.append("textarea").attr("rows", 10).attr("cols", 80);
+    back.append("input").attr("type", "button")
+                .attr("value", "Save").on("click", function() {
+        let t = d3.select("#sketchboardjson").select("textarea");
+        t.text(board.toJSON("  "));
+        t.attr("value", t.node().textContent);
+    });
+    back.append("input").attr("type", "button")
+                .attr("value", "Load").on("click", function() {
+        board.fromJSON(d3.select("#sketchboardjson").select("textarea")
+                .node().value);
+    });
+  </script>
+</html>
+
