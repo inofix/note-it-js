@@ -53,7 +53,11 @@
                     ["#f7ff72", "#ff6ee2", "#6ee0ff"], [14,14]);
 
     var back = d3.select("#sketchboardjson");
-    back.append("textarea").attr("rows", 10).attr("cols", 80);
+    let a = back.append("textarea").attr("rows", 10).attr("cols", 80);
+    a.on("keyup", function() {
+        let t = d3.select("#sketchboardjson").select("textarea");
+        t.attr("value", t.node().textContent);
+    });
     back.append("input").attr("type", "button")
                 .attr("value", "Save").on("click", function() {
         let t = d3.select("#sketchboardjson").select("textarea");
