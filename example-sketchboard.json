@@ -1,0 +1,87 @@
+{
+  "stack": {
+    "class": "noteit",
+    "color": ["#f7ff72","#ff72e3","#6ee0ff","#ffa800","#a9a9ff","#b3ff7b"],
+    "geometry": [14,14],
+    "position": [2,2],
+    "handles": ["close","new","color","edit","visible"],
+    "type": "Type"
+  },
+  "1e9cf8bd9a0c": {
+    "class": "noteit",
+    "parentId": "stack",
+    "color": ["#b3ff7b","#f7ff72","#ff72e3","#6ee0ff","#ffa800","#a9a9ff"],
+    "geometry": [14,14],
+    "position": [28,28],
+    "handles": ["close","new","color","edit","visible"],
+    "type": "Simple Note",
+    "title": "Sticky Notes",
+    "content": "Implement a simple<br/>JavaScript<br/>web-solution to<br/>organize ideas...<br/>"
+  },
+  "da09aba9e9ae": {
+    "class": "noteit",
+    "parentId": "stack",
+    "color": ["#f7ff72","#ff72e3","#6ee0ff","#ffa800","#a9a9ff","#b3ff7b"],
+    "geometry": [14,14],
+    "position": [28,28],
+    "handles": ["close","new","color","edit","visible"],
+    "type": "Simple Note",
+    "title": "Try to be modular",
+    "content": "Just a reminder...<br/>"
+  },
+  "1caf0bba881d": {
+    "class": "noteit",
+    "parentId": "1e9cf8bd9a0c",
+    "color": ["#6ee0ff","#ffa800","#a9a9ff","#b3ff7b","#f7ff72","#ff72e3"],
+    "geometry": [14,14],
+    "position": [28,28],
+    "handles": ["close","new","color","edit","visible"],
+    "type": "Class",
+    "title": "Adhesive",
+    "content": "The most basic form of a<br/>sticker to write on.<br/>- Just a type field<br/>- some color<br/>"
+  },
+  "08b98811dffd": {
+    "class": "noteit",
+    "parentId": "1e9cf8bd9a0c",
+    "color": ["#6ee0ff","#ffa800","#a9a9ff","#b3ff7b","#f7ff72","#ff72e3"],
+    "geometry": [14,14],
+    "position": [28,28],
+    "handles": ["close","new","color","edit","visible"],
+    "type": "Class",
+    "title": "Stack",
+    "content": "Just a pile of stickers... <br/>"
+  },
+  "b89fd9ad8ec9": {
+    "class": "noteit",
+    "parentId": "1caf0bba881d",
+    "color": ["#6ee0ff","#ffa800","#a9a9ff","#b3ff7b","#f7ff72","#ff72e3"],
+    "geometry": [14,14],
+    "position": [28,28],
+    "handles": ["close","new","color","edit","visible"],
+    "type": "Class",
+    "title": "NoteIt (Adhesive)",
+    "content": "A more complex form of<br/>sticker.<br/> - Type field<br/> - Title<br/> - Content<br/>"
+  },
+  "fdf0ccfeda0d": {
+    "class": "noteit",
+    "parentId": "1e9cf8bd9a0c",
+    "color": ["#6ee0ff","#ffa800","#a9a9ff","#b3ff7b","#f7ff72","#ff72e3"],
+    "geometry": [14,14],
+    "position": [28,28],
+    "handles": ["close","new","color","edit","visible"],
+    "type": "Class",
+    "title": "Sketch Board",
+    "content": "A sketch board to<br/>put the stickers on.<br/>"
+  },
+  "b8fbe189bd80": {
+    "class": "noteit",
+    "parentId": "stack",
+    "color": ["#ff72e3","#6ee0ff","#ffa800","#a9a9ff","#b3ff7b","#f7ff72"],
+    "geometry": [14,14],
+    "position": [28,28],
+    "handles": ["close","new","color","edit","visible"],
+    "type": "Example",
+    "title": "An Example",
+    "content": "Just to show a little<br/>more.<br/>"
+  }
+}
