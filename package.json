@@ -2,12 +2,12 @@
   "name": "note-it",
   "version": "1.0.0",
   "description": "Create small virtual papers to organize your thoughts..",
-  "main": "init.js",
+  "main": "example-sketchboard-init.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "babel": "babel --presets es2015 lib/noteit.es.js -o build/noteit.lib.js; babel --presets es2015 lib/noteit.board.es.js -o build/noteit.board.js"
+    "babel": "babel --presets es2015 lib/noteit.board.es.js -o build/noteit.board.js"
   },
   "repository": {
     "type": "git",
