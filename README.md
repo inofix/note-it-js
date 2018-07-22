@@ -22,4 +22,7 @@ and use it with e.g.
 
   `<script src="init.js"></script>`
 
+## Perspectives ##
 
+We also have a Liferay-Portlet featuring note-it-js at
+https://github.com/inofix/ch-inofix-sketch-board.
