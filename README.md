@@ -22,6 +22,16 @@ and use it with e.g.
 
   `<script src="init.js"></script>`
 
+## Releases ##
+
+If your only interested in the final .js, have a look at the release page:
+https://github.com/inofix/note-it-js/releases
+
+## Examples / Demo ##
+
+Running examples can be found here:
+https://inofix.github.io/note-it-js/
+
 ## Perspectives ##
 
 We also have a Liferay-Portlet featuring note-it-js at
