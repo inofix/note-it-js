@@ -1,6 +1,7 @@
 var board = new SketchBoard("#sketchboard");
-var rstack = new Stack(board, board.group, "Type", 
-                ["#f7ff72", "#ff72e3", "#6ee0ff", "#ffa800", "#a9a9ff", "#b3ff7b"], [14,14]);
+var rstack = new Stack(board, board.group, "Type",
+            ["#f7ff72", "#ff72e3", "#6ee0ff", "#ffa800", "#a9a9ff", "#b3ff7b"],
+            [14,14]);
 
 var back = d3.select("#sketchboardjson");
 let a = back.append("textarea").attr("rows", 10).attr("cols", 80);
@@ -19,4 +20,5 @@ back.append("input").attr("type", "button")
     board.fromJSON(d3.select("#sketchboardjson").select("textarea")
             .node().value);
 });
+
 
