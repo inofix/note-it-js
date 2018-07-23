@@ -1,8 +1,15 @@
+
+// the board is the main container to organize the adhesives on
 var board = new SketchBoard("#sketchboard");
+
+// a stack is an entry point containing an adhesive to creating the
+// rest of the elements from..
 var rstack = new Stack(board, board.group, "Type",
             ["#f7ff72", "#ff72e3", "#6ee0ff", "#ffa800", "#a9a9ff", "#b3ff7b"],
             [14,14]);
 
+// the back(-end) is where the JSON representation goes - it can be
+// used to later restore the board
 var back = d3.select("#sketchboardjson");
 let a = back.append("textarea").attr("rows", 10).attr("cols", 80);
 a.on("keyup", function() {
