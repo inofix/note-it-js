@@ -1,6 +1,9 @@
+// the gallery controls the available images
+var gallery = new Gallery(["example-images/lfs-logo.png",
+                            "example-images/meditate-tiny.jpg"], false);
 
 // the board is the main container to organize the adhesives on
-var board = new SketchBoard("#sketchboard");
+var board = new SketchBoard("#sketchboard", undefined, undefined, false, gallery);
 
 // a stack is an entry point containing an adhesive to creating the
 // rest of the elements from..
