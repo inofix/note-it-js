@@ -2,6 +2,8 @@
 var gallery = new Gallery(["example-images/lfs-logo.png",
                             "example-images/meditate-tiny.jpg"], false);
 
+gallery.displayImageList("#sketchboardimages");
+
 // the board is the main container to organize the adhesives on
 var board = new SketchBoard("#sketchboard", undefined, undefined, false, gallery);
 
