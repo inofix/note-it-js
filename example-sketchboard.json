@@ -161,7 +161,7 @@
     "color": ["#a9a9ff","#b3ff7b","#f7ff72","#ff72e3","#6ee0ff","#ffa800"],
     "geometry": [14,14],
     "position": [28,28],
-    "transform": [-552,563],
+    "transform": [-552,564],
     "edgeVisible": true,
     "handles": ["close","visible","new","color","edit","label","uri","photo"],
     "type": "Distribution",
@@ -180,5 +180,38 @@
     "type": "Meta",
     "title": "Meta Note",
     "content": "This is a far from<br/>complete collection<br/>of infos about<br/>software.<br/>Very general and just<br/>to show an example<br/>of the note-it-js.<br/>"
+  },
+  "afbbcfefa9fb": {
+    "class": "uri",
+    "parentId": "deb00881def9",
+    "color": ["#ddddff"],
+    "geometry": [20,1.2],
+    "position": [28,28],
+    "transform": [71,233],
+    "edgeVisible": false,
+    "handles": ["close","label","edit"],
+    "uri": "http://linuxfromscratch.org; http://lnuxfromscratch.org"
+  },
+  "00ec9af80f8c": {
+    "class": "uri",
+    "parentId": "9ab8c11f11ee",
+    "color": ["#ddddff"],
+    "geometry": [20,1.2],
+    "position": [683.88330078125,32.316650390625],
+    "transform": [57,65],
+    "edgeVisible": false,
+    "handles": ["close","label","edit"],
+    "uri": "https://debian.org"
+  },
+  "a8009cfe9081": {
+    "class": "uri",
+    "parentId": "ade181bd1e0d",
+    "color": ["#ddddff"],
+    "geometry": [20,1.2],
+    "position": [28,28],
+    "transform": [34,237],
+    "edgeVisible": false,
+    "handles": ["close","label","edit"],
+    "uri": "https://fsf.org"
   }
 }
