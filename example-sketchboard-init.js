@@ -25,7 +25,7 @@ back.append("input").attr("type", "button")
             .attr("value", "To JSON").on("click", function() {
     let t = d3.select("#sketchboardjson").select("textarea");
     t.text(board.toJSON("  "));
-    t.attr("value", t.node().textContent);
+    t.property("value", t.node().textContent);
 });
 back.append("input").attr("type", "button")
             .attr("value", "From JSON").on("click", function() {
