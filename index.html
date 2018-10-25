@@ -1,15 +1,51 @@
-<html>
-    <head>
-    </head>
-    <body>
-        <h1>Examples</h1>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
 
-        <ul>
-            <li>
-                <a href="https://inofix.github.io/note-it-js/example-sketchboard.html">
-                    Sketch/Planning Board (note-it-js v0.4)
-                </a>
-            </li>
-        </ul>
-    </body>
+    <style>body, html {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+          font-family: Helvetica, sans-serif;
+      }
+      #thesketchboard {
+        border: 1px solid black;
+        top: 2px;
+        left: 2px;
+        width: 4096px;
+        height: 2048px;
+      }
+      svg {
+        position: relative;
+        top: 2em;
+        left: 2em;
+        width: 100%;
+        height: 100%;
+      }
+      svg>#sketchboard {
+        background: linear-gradient(#000000, #0000bb);
+      }
+      #sketchboardjson {
+        position: relative;
+        top: 2px;
+        left: 2px;
+      }
+      .paper {
+        stroke: black;
+        stroke-width: 1px;
+      }</style>
+  </head>
+  <body>
+    <div>
+        <div id="sketchboardjson"></div>
+        <div id="sketchboardimages"></div>
+        <div id="thesketchboard">
+            <svg id="sketchboard"></svg>
+        </div>
+    </div>
+  </body>
+  <script src="./index.js"></script>
 </html>
+

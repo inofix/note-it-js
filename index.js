@@ -1,6 +1,14 @@
+import * as d3 from "d3";
+import {
+    Gallery,
+    SketchBoard,
+    Stack
+} from "./lib/noteit.board.es.js";
+
+
 // the gallery controls the available images
 var gallery = new Gallery(["example-images/lfs-logo.png",
-                            "example-images/meditate-tiny.jpg"], false);
+                           "example-images/meditate-tiny.jpg"], false);
 
 gallery.displayImageList("#sketchboardimages");
 
@@ -10,8 +18,8 @@ var board = new SketchBoard("#sketchboard", undefined, undefined, false, gallery
 // a stack is an entry point containing an adhesive to creating the
 // rest of the elements from..
 var rstack = new Stack(board, board.group, "Type",
-            ["#f7ff72", "#ff72e3", "#6ee0ff", "#ffa800", "#a9a9ff", "#b3ff7b"],
-            [14,14]);
+		       ["#f7ff72", "#ff72e3", "#6ee0ff", "#ffa800", "#a9a9ff", "#b3ff7b"],
+		       [14,14]);
 
 // the back(-end) is where the JSON representation goes - it can be
 // used to later restore the board
@@ -22,15 +30,13 @@ a.on("keyup", function() {
     t.attr("value", t.node().textContent);
 });
 back.append("input").attr("type", "button")
-            .attr("value", "To JSON").on("click", function() {
-    let t = d3.select("#sketchboardjson").select("textarea");
-    t.text(board.toJSON("  "));
-    t.property("value", t.node().textContent);
-});
+    .attr("value", "To JSON").on("click", function() {
+	let t = d3.select("#sketchboardjson").select("textarea");
+	t.text(board.toJSON("  "));
+	t.property("value", t.node().textContent);
+    });
 back.append("input").attr("type", "button")
-            .attr("value", "From JSON").on("click", function() {
-    board.fromJSON(d3.select("#sketchboardjson").select("textarea")
-            .node().value);
-});
-
-
+    .attr("value", "From JSON").on("click", function() {
+	board.fromJSON(d3.select("#sketchboardjson").select("textarea")
+		       .node().value);
+    });
