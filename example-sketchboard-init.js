@@ -1,10 +1,7 @@
 import * as d3 from "d3";
-import {
-    Gallery,
-    SketchBoard,
-    Stack
-} from "./lib/noteit.board.es.js";
-
+import Gallery from './lib/gallery';
+import SketchBoard from './lib/sketchboard';
+import Stack from './lib/stack';
 
 // the gallery controls the available images
 var gallery = new Gallery(["example-images/lfs-logo.png",
