@@ -7,8 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "start": "parcel example-sketchboard.html",
+    "build": "parcel build example-sketchboard.html",
     "serve-build": "serve ./dist/",
     "clean": "rm -rf node_modules/ dist/ .cache/",
     "clean-build": "rm -rf dist/ .cache/ && npm run build && npm run serve-build"
