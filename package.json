@@ -8,9 +8,11 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --no-minify",
+    "build": "parcel build index.html",
     "serve-build": "serve ./dist/",
-    "clean": "rm -rf node_modules/ dist/ .cache/"
+    "clean": "rm -rf node_modules/ dist/ .cache/",
+    "clean-build": "rm -rf dist/ .cache/ && npm run build && npm run serve-build"
+
   },
   "repository": {
     "type": "git",
