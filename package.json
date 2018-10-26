@@ -12,7 +12,6 @@
     "serve-build": "serve ./dist/",
     "clean": "rm -rf node_modules/ dist/ .cache/",
     "clean-build": "rm -rf dist/ .cache/ && npm run build && npm run serve-build"
-
   },
   "repository": {
     "type": "git",
@@ -26,6 +25,7 @@
   "homepage": "https://github.com/inofix/note-it-js#readme",
   "devDependencies": {
     "parcel-bundler": "^1.10.3",
+    "parcel-plugin-static-files-copy": "^1.2.4",
     "serve": "^10.0.2"
   },
   "dependencies": {
