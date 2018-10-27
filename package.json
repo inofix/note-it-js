@@ -7,11 +7,10 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "parcel example-sketchboard.html",
-    "build": "parcel build example-sketchboard.html",
-    "serve-build": "serve ./dist/",
     "clean": "rm -rf node_modules/ dist/ .cache/",
-    "clean-build": "rm -rf dist/ .cache/ && npm run build && npm run serve-build"
+    "build": "rm -rf ./dist && parcel build example-sketchboard.html",
+    "serve-build": "serve ./dist/",
+    "start": "parcel example-sketchboard.html"
   },
   "repository": {
     "type": "git",
