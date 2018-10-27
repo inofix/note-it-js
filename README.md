@@ -57,7 +57,7 @@ https://github.com/inofix/note-it-js/releases
 ## Examples / Demo
 
 Running examples can be found here:
-https://inofix.github.io/note-it-js/
+https://note-it-js.demo.inofix.net/
 
 ## Perspectives
 
