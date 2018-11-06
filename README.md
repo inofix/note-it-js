@@ -13,26 +13,42 @@ versions.
 With `node.js` comes `npm`, the Node Package Mananger — as an
 alternative you can also use [`yarn`](https://yarnpkg.com/).
 
-
-* clone this git repository
-* `cd note-it-js`
-* `npm install` to install the dependencies described in the
+- clone this git repository
+- `cd note-it-js`
+- `npm install` to install the dependencies described in the
   `package.json` file
 
 ## Run de development server
 
 Inside the project's folder:
 
-* Be sure that you have installed all javascript dependencies with
+- Be sure that you have installed all javascript dependencies with
   `npm install`
-* Start a development server with the command `npm start`
+- Start a development server with the command `npm start`
 
 The command output should say on which local URL and port the
 development server is accessible.
 
 When the server is running, all changes to the project's assets are
 detected. It will result in the server building a new version of
-each changed assets and refreshing the web page to display all changes.
+each changed assets and refreshing the web page to display all
+changes.
+
+## Testing, linting, Continuous Integration
+
+### Linting
+
+For Linting, this project uses the opinionated Prettier.
+It is setup to run with Pre-commit tools (as in pre-commit hooks), to
+re-format all files that are marked as "staged" via git add before
+they are commited. For more information, read [Prettier pre-commit
+hooks documentation](https://prettier.io/docs/en/precommit.html).
+
+You can also run the `npm run lint` command at any time.
+
+### Continous Integration (CI)
+
+CI is setup using [travis-ci](https://travis-ci.org/).
 
 ## Build the project for production
 
@@ -64,7 +80,6 @@ https://inofix.github.io/note-it-js/
 We also have a Liferay-Portlet featuring note-it-js at
 https://github.com/inofix/ch-inofix-sketch-board.
 
-
 ## Notes
 
 ### On the development server
@@ -75,7 +90,7 @@ run a development server and build the production version of the
 project.
 
 During the development phases, it watches for changes to the different
-assets files and folders, to update the development  version of the
+assets files and folders, to update the development version of the
 application.
 
 During production, it bundles and minifies the same assets (when
@@ -90,7 +105,7 @@ ready.
 ### On the production build
 
 During the build for production phase, assets (js, css, html etc.) are
-minified by the application bundler (and its chain of "transforms"  —
+minified by the application bundler (and its chain of "transforms" —
 see its documentation).
 
 The `.htmlnanorc` file specifies `"minifySvg": false`, since the
