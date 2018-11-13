@@ -18,7 +18,7 @@
   "homepage": "https://github.com/inofix/note-it-js#readme",
   "scripts": {
     "start": "parcel example-sketchboard.html",
-    "lint": "prettier --single-quote --write './{lib,test}/**/*.js'",
+    "lint": "prettier --write './{lib,test}/**/*.js'",
     "test": "npm run lint && ava",
     "build": "parcel build example-sketchboard.html",
     "serve-build": "serve ./dist/",
