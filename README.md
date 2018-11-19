@@ -2,6 +2,8 @@
 
 Virtual version of the famous sticky paper note solution.
 
+[![](https://api.travis-ci.org/inofix/note-it-js.svg?branch=master)](https://travis-ci.org/inofix/note-it-js)
+
 ## Setup / Contribute
 
 The development of this projects requires the installation of a
