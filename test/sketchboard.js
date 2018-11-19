@@ -1,7 +1,7 @@
 import test from 'ava'
 import SketchBoard from '../lib/sketchboard'
 
-test.before(t => {
+test.before(() => {
   const s = document.createElement('div')
   s.setAttribute('id', 'sketchboard')
   document.body.appendChild(s)
