@@ -19,7 +19,7 @@ import { Gallery, SketchBoard, Stack } from './lib'
   var rstack = new Stack(
     board,
     board.group,
-    'Type',
+    'Note',
     ['#f7ff72', '#ff72e3', '#6ee0ff', '#ffa800', '#a9a9ff', '#b3ff7b'],
     [14, 14]
   )
