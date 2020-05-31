@@ -12,20 +12,14 @@ import { Gallery, SketchBoard, Stack } from './lib'
   gallery.displayImageList('#sketchboardimages')
 
   // the board is the main container to organize the adhesives on
-  var board = new SketchBoard(
-    '#sketchboard',
-    undefined,
-    undefined,
-    false,
-    gallery
-  )
+  var board = new SketchBoard('#sketchboard', undefined, undefined, gallery)
 
   // a stack is an entry point containing an adhesive to creating the
   // rest of the elements from..
   var rstack = new Stack(
     board,
     board.group,
-    'Type',
+    'Note',
     ['#f7ff72', '#ff72e3', '#6ee0ff', '#ffa800', '#a9a9ff', '#b3ff7b'],
     [14, 14]
   )
