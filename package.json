@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/inofix/note-it-js#readme",
   "scripts": {
-    "start": "parcel example-sketchboard.html",
+    "start": "parcel examples/sketchboard-empty.html && parcel examples/sketchboard-freedom.html",
     "lint": "prettier --write './{lib,test}/**/*.js' && eslint --fix './{lib,test}/**/*.js'",
     "test": "npm run lint && ava",
-    "build": "parcel build example-sketchboard.html",
+    "build": "parcel build examples/sketchboard-empty.html && parcel build examples/sketchboard-freedom.html",
     "serve-build": "serve ./dist/",
     "clean": "rm -rf node_modules/ dist/ .cache/",
     "clean-build": "rm -rf dist/ .cache/ && npm run build && npm run serve-build"
