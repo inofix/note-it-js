@@ -67,7 +67,7 @@ import { Gallery, SketchBoard, Stack } from '../lib'
       : $body.classList.add(navIsActiveClass)
   })
   d3.json(
-    '//raw.githubusercontent.com/inofix/note-it-js/master/example-sketchboard.json'
+    '//raw.githubusercontent.com/inofix/note-it-js/master/examples/sketchboard-freedom.json'
   ).then(data => {
     board.fromJSON(data)
   })
