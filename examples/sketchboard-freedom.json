@@ -16,7 +16,7 @@
       "uri",
       "photo"
     ],
-    "type": "Type"
+    "type": "Note"
   },
   "b09dfcedc0aa": {
     "class": "noteit",
@@ -24,7 +24,7 @@
     "color": ["#b3ff7b", "#f7ff72", "#ff72e3", "#6ee0ff", "#ffa800", "#a9a9ff"],
     "geometry": [14, 14],
     "position": [28, 28],
-    "transform": [639, 39],
+    "transform": [633, 169],
     "edgeVisible": true,
     "handles": [
       "close",
@@ -46,7 +46,7 @@
     "color": ["#ffa800", "#a9a9ff", "#b3ff7b", "#f7ff72", "#ff72e3", "#6ee0ff"],
     "geometry": [14, 14],
     "position": [28, 28],
-    "transform": [1029, 21],
+    "transform": [1016, 62],
     "edgeVisible": true,
     "handles": [
       "close",
@@ -68,7 +68,7 @@
     "color": ["#a9a9ff", "#b3ff7b", "#f7ff72", "#ff72e3", "#6ee0ff", "#ffa800"],
     "geometry": [14, 14],
     "position": [28, 28],
-    "transform": [-601, 278],
+    "transform": [-612, 161],
     "edgeVisible": true,
     "handles": [
       "close",
@@ -90,7 +90,7 @@
     "color": ["#ff72e3", "#6ee0ff", "#ffa800", "#a9a9ff", "#b3ff7b", "#f7ff72"],
     "geometry": [14, 14],
     "position": [28, 28],
-    "transform": [-33, 269],
+    "transform": [92, 300],
     "edgeVisible": true,
     "handles": [
       "close",
@@ -112,7 +112,7 @@
     "color": ["#fafafa"],
     "geometry": [16, 16],
     "position": [2, 2],
-    "transform": [237, 4],
+    "transform": [241, 1],
     "edgeVisible": false,
     "handles": ["close", "label", "edit"],
     "type": "Photo",
@@ -146,7 +146,7 @@
     "color": ["#ff72e3", "#6ee0ff", "#ffa800", "#a9a9ff", "#b3ff7b", "#f7ff72"],
     "geometry": [14, 14],
     "position": [28, 28],
-    "transform": [14, 388],
+    "transform": [287, 326],
     "edgeVisible": true,
     "handles": [
       "close",
@@ -160,7 +160,7 @@
     ],
     "type": "Kernel",
     "title": "Hurd",
-    "content": "another one.<br/>"
+    "content": "A not too well known<br/>core.<br/>"
   },
   "8db81aacebe1": {
     "class": "noteit",
@@ -168,7 +168,7 @@
     "color": ["#6ee0ff", "#ffa800", "#a9a9ff", "#b3ff7b", "#f7ff72", "#ff72e3"],
     "geometry": [14, 14],
     "position": [28, 28],
-    "transform": [308, 294],
+    "transform": [555, 197],
     "edgeVisible": true,
     "handles": [
       "close",
@@ -213,7 +213,7 @@
     "color": ["#ff6666", "#00ff00", "#7788ff"],
     "geometry": [8, 1],
     "position": [28, 42.949981689453125],
-    "transform": [156, 33],
+    "transform": [176, 20],
     "edgeVisible": false,
     "handles": ["close", "color", "edit"],
     "type": "Support!"
@@ -224,7 +224,7 @@
     "color": ["#a9a9ff", "#b3ff7b", "#f7ff72", "#ff72e3", "#6ee0ff", "#ffa800"],
     "geometry": [14, 14],
     "position": [28, 28],
-    "transform": [-552, 564],
+    "transform": [-315, 454],
     "edgeVisible": true,
     "handles": [
       "close",
@@ -246,7 +246,7 @@
     "color": ["#f7ff72", "#ff72e3", "#6ee0ff", "#ffa800", "#a9a9ff", "#b3ff7b"],
     "geometry": [14, 14],
     "position": [28, 28],
-    "transform": [192, 17],
+    "transform": [244, 6],
     "edgeVisible": true,
     "handles": [
       "close",
@@ -260,7 +260,7 @@
     ],
     "type": "Meta",
     "title": "Meta Note",
-    "content": "This is a far from<br/>complete collection<br/>of infos about<br/>software.<br/>Very general and just<br/>to show an example<br/>of note-it-js.<br/>"
+    "content": "This is a far from<br/>complete and<br/>heavily oversimplified<br/>collection<br/>of infos about<br/>software --<br/>biased and just<br/>to show an example<br/>of note-it-js.<br/>"
   },
   "afbbcfefa9fb": {
     "class": "uri",
@@ -268,10 +268,10 @@
     "color": ["#ddddff"],
     "geometry": [20, 1.2],
     "position": [28, 28],
-    "transform": [71, 233],
+    "transform": [58, 226],
     "edgeVisible": false,
     "handles": ["close", "label", "edit"],
-    "uri": "http://linuxfromscratch.org; http://lnuxfromscratch.org"
+    "uri": "http://linuxfromscratch.org;   http://lnuxfromscratch.org"
   },
   "00ec9af80f8c": {
     "class": "uri",
