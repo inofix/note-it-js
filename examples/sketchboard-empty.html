@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <link  href="//fonts.googleapis.com/css?family=Short+Stack:regular" rel="stylesheet" type="text/css">
+	<style>
+	/*
+	   box-sizing model
+	   https://css-tricks.com/box-sizing/
+	 */
+
+	html {
+	    box-sizing: border-box;
+	}
+	*, *:before, *:after {
+	    box-sizing: inherit;
+	}
+
+	/* custom styles */
+	html {
+        font-family: "Short Stack", Helvetica, sans-serif;
+	}
+	body {
+	    margin: 0;
+	}
+
+	.Site--navActive .Site-aside {
+	    display: block;
+	}
+	.Site-aside {
+	    display: none;
+	    position: absolute;
+	    overflow-x: scroll;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    z-index: 1;
+	    background-color: khaki;
+	    padding: 1.5rem;
+	    margin: 1.5rem;
+	    opacity: 0.95;
+	}
+
+	.Site-aside textarea {
+	    width: 100%;
+	}
+
+	.Site-navigation {
+	    position: fixed;
+	    z-index: 2;
+	    top: 0;
+	    right: 0;
+	    padding: 1rem;
+	    margin: 1rem;
+	    cursor: pointer;
+	    background-color: cyan;
+	}
+	.Site-navigation:hover {
+	    background-color: forestgreen;
+	}
+
+	#thesketchboard {
+	    width: 100%;
+	    min-height: 100vh;
+	    position: relative;
+	}
+	#sketchboard {
+	    padding: 1rem;
+	    /* width + height + position are required */
+	    width: 100%;
+	    height: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	}
+
+	.handle {
+	    cursor: pointer;
+	}
+	.dragable {
+	    cursor: move;
+	}
+	</style>
+    </head>
+    <body class="Site">
+	<div>
+	    <nav class="Site-navigation">
+		Menu
+	    </nav>
+	    <aside class="Site-aside">
+		<h1>Note it!</h1>
+		<p>You can export and import your work to JSON.</p>
+		<div id="sketchboardjson"></div>
+		<div id="sketchboardimages"></div>
+	    </aside>
+	    <div id="thesketchboard" class="Site-sketchboard">
+		<svg id="sketchboard"></svg>
+	    </div>
+	</div>
+    </body>
+    <script src="./sketchboard-empty-init.js"></script>
+</html>

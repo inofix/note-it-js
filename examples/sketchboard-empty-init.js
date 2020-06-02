@@ -1,5 +1,5 @@
 import * as d3 from 'd3'
-import { Gallery, SketchBoard, Stack } from './lib'
+import { Gallery, SketchBoard, Stack } from '../lib'
 
 // self invoking function to keep the window js scope clean
 ;(function() {
