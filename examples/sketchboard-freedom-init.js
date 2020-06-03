@@ -66,9 +66,14 @@ import { Gallery, SketchBoard, Stack } from '../lib'
       ? $body.classList.remove(navIsActiveClass)
       : $body.classList.add(navIsActiveClass)
   })
-  d3.json(
-    '//raw.githubusercontent.com/inofix/note-it-js/master/examples/sketchboard-freedom.json'
-  ).then(data => {
-    board.fromJSON(data)
-  })
+  try {
+    d3.json(
+      '//raw.githubusercontent.com/inofix/note-it-js/master/examples/sketchboard-freedom.json'
+    ).then(data => {
+      board.createFromJSON(data)
+    })
+  } catch (e) {
+    // TODO find a more elegant way to communicate an error than exploding in the users face..
+    alert('Unable to load the JSON file: ' + e)
+  }
 })()
